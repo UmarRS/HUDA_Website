@@ -1,51 +1,58 @@
 import React from "react";
-import { AiOutlineHome } from "react-icons/ai";
-import { styled } from "@mui/material/styles";
-import Box from "@mui/material/Box";
-import Paper from "@mui/material/Paper";
-import Grid from "@mui/material/Grid";
-import Button from "@mui/material/Button";
-import { Stack } from "@mui/system";
-import Link from "@mui/material/Link";
-import Donate from "../routes/Donate";
-import Container from "@mui/material/Container";
-import CssBaseline from "@mui/material/CssBaseline";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   return (
-    <React.Fragment>
-      <CssBaseline />
-      <Container>
-        <Box
-          sx={{ bgcolor: "#cfe8fc", height: "5vh", minWidth: "sm" }}
-          textAlign="center"
-        >
-          <Button variant="standard" href="/">
-            Home
-          </Button>
-          <Button variant="standard" href="/Announcements">
-            Announcements
-          </Button>
-          <Button variant="standard" href="/healthservices">
-            Health Services
-          </Button>
-          <Button variant="standard" href="/ourstory">
-            Our Story
-          </Button>
-          <Button variant="standard" href="/Donate">
-            Donate
-          </Button>
-          <Button variant="standard" href="/Volunteer">
-            Volunteer
-          </Button>
-          <Button variant="standard" href="/Partners">
-            Partners
-          </Button>
-          <Button variant="standard" href="/Contact">
-            Contact Us
-          </Button>
-        </Box>
-      </Container>
-    </React.Fragment>
+    <div className="flex justify-between bg-blue-100 py-1 w-full">
+      {/* Ensures full width and evenly spaces buttons
+      <Link
+        to="/"
+        className="flex-1 text-center bg-blue-500 hover:bg-blue-700 text-white py-2 mx-1 rounded"
+      >
+        Home
+      </Link>
+      <Link
+        to="/Announcements"
+        className="flex-1 text-center bg-blue-500 hover:bg-blue-700 text-white py-2 mx-1 rounded"
+      >
+        Announcements
+      </Link>
+      <Link
+        to="/healthservices"
+        className="flex-1 text-center bg-blue-500 hover:bg-blue-700 text-white py-2 mx-1 rounded"
+      >
+        Health Services
+      </Link>
+      <Link
+        to="/ourstory"
+        className="flex-1 text-center bg-blue-500 hover:bg-blue-700 text-white py-2 mx-1 rounded"
+      >
+        Our Story
+      </Link>
+      <Link
+        to="/Donate"
+        className="flex-1 text-center bg-blue-500 hover:bg-blue-700 text-white py-2 mx-1 rounded"
+      >
+        Donate
+      </Link>
+      <Link
+        to="/Volunteer"
+        className="flex-1 text-center bg-blue-500 hover:bg-blue-700 text-white py-2 mx-1 rounded"
+      >
+        Volunteer
+      </Link>
+      <Link
+        to="/Partners"
+        className="flex-1 text-center bg-blue-500 hover:bg-blue-700 text-white py-2 mx-1 rounded"
+      >
+        Partners
+      </Link>
+      <Link
+        to="/Contact"
+        className="flex-1 text-center bg-blue-500 hover:bg-blue-700 text-white py-2 mx-1 rounded"
+      >
+        Contact Us
+      </Link> */}
+    </div>
   );
 }
