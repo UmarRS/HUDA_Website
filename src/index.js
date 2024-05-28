@@ -24,8 +24,8 @@ import Footer from "./components/Footer";
 import Appointments from "./routes/Appointments";
 import Request from "./routes/Request";
 import Medical from "./routes/Medical";
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { zhCN } from '@mui/material/locale';
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { zhCN } from "@mui/material/locale";
 import CommunityOutreach from "./routes/CommunityOutreach";
 import Education from "./routes/EducationCenter";
 import Headlines from "./routes/Headlines";
@@ -33,28 +33,25 @@ import Garden from "./routes/Garden";
 import Reports from "./routes/Reports";
 import EducationCenter from "./routes/EducationCenter";
 import LoginHandler from "./components/LoginHandler";
+import "./App.css";
 
 const theme = createTheme(
   {
     palette: {
-      primary: { main: '#1976d2' },
+      primary: { main: "#1976d2" },
     },
   },
-  zhCN,
+  zhCN
 );
-
-
-
 
 const AppLayout = () => {
   return (
     <>
-    <ThemeProvider theme={theme}> 
-      <Outlet />  
-      <Footer/> 
-     </ThemeProvider>
+      <ThemeProvider theme={theme}>
+        <Outlet />
+        <Footer />
+      </ThemeProvider>
     </>
-    
   );
 };
 
@@ -71,8 +68,8 @@ const router = createBrowserRouter([
         path: "appointments",
         element: (
           <>
-          <LoginHandler />
-          <Appointments />
+            <LoginHandler />
+            <Appointments />
           </>
         ),
       },
@@ -86,59 +83,56 @@ const router = createBrowserRouter([
       },
       {
         path: "healthservices",
-        element: <HealthServices/>,
+        element: <HealthServices />,
       },
       {
-        path:"ourstory",
-        element: <OurStory/>
+        path: "ourstory",
+        element: <OurStory />,
       },
       {
-        path:"donate",
-        element: <Donate/>
+        path: "donate",
+        element: <Donate />,
       },
       {
-        path:"partners",
-        element: <Partners/>
+        path: "partners",
+        element: <Partners />,
       },
       {
-        path:"volunteer",
-        element: <Volunteer/>
+        path: "volunteer",
+        element: <Volunteer />,
       },
       {
-        path:"NewPatientForms",
-        element: <NewPatientForms/>
-      }
-      ,
-      {
-        path:"communityoutreach",
-        element: <CommunityOutreach/>
+        path: "NewPatientForms",
+        element: <NewPatientForms />,
       },
       {
-        path:"educationcenter",
-        element: <EducationCenter/>
+        path: "communityoutreach",
+        element: <CommunityOutreach />,
       },
       {
-        path:"Request",
-        element: <Request/>
+        path: "educationcenter",
+        element: <EducationCenter />,
       },
       {
-        path:"Medical",
-        element: <Medical/>
+        path: "Request",
+        element: <Request />,
       },
       {
-        path:"headlines",
-        element: <Headlines/>
+        path: "Medical",
+        element: <Medical />,
       },
       {
-        path:"garden",
-        element: <Garden/>
+        path: "headlines",
+        element: <Headlines />,
       },
       {
-        path:"reports",
-        element: <Reports/>
+        path: "garden",
+        element: <Garden />,
       },
-
-
+      {
+        path: "reports",
+        element: <Reports />,
+      },
     ],
   },
 ]);
