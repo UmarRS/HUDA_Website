@@ -1,75 +1,123 @@
-import React, { useState } from "react";
-import { useEffect } from "react";
-import { Link } from "react-router-dom";
-import "./Navbar.css";
-import { RiHeartPulseFill } from "react-icons/ri";
-import { FaBars, FaTimes } from "react-icons/fa";
-import { IconContext } from "react-icons/lib";
-import { NavLink } from "react-router-dom";
-import { Button } from "@mui/material";
-import Stack from "@mui/material/Stack";
-import Grid from "@mui/material/Grid";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
+import React from "react";
+import { Link, NavLink } from "react-router-dom";
+import { IconContext } from "react-icons";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Button } from "@/components/ui/button";
 
 function Navbar() {
-  const [click, setClick] = useState(false);
-
-  const handleClick = () => setClick(!click);
-  const closeMobileMenu = () => setClick(false);
-
-  //testing the new branch
-
   return (
-    <>
-      <IconContext.Provider value={{ color: "#fff" }}>
-        <nav className="navbar">
-          <div className="navbar-container container">
-            <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
-              <Box
-                component="img"
-                sx={{
-                  height: 233,
-                  width: 350,
-                  paddingTop: 1,
-                  paddingLeft: 3,
-                  maxHeight: { xs: 80, md: 80 },
-                  maxWidth: { xs: 100, md: 100 },
-                }}
-                src="http://www.hudaclinic.org/images/logo.png"
-              />
+    <IconContext.Provider>
+      <header className="flex items-center justify-between h-auto px-4 md:px-6 lg:px-8 bg-white dark:bg-gray-950 m-3">
+        <div className="flex items-center">
+          <Link
+            className="flex items-center gap-2 text-xl font-semibold text-black hover:text-gray-700 no-underline"
+            href="#"
+            to="/"
+          >
+            <img
+              className="w-auto h-20"
+              src="http://www.hudaclinic.org/images/logo.png"
+              alt="Logo"
+            />
+            <span className="sr-only">Acme Health</span>
+          </Link>
+          <nav className="hidden ml-10 space-x-4 md:flex md:items-center">
+            <DropdownMenu>
+              <DropdownMenuTrigger className="flex items-center gap-1 text-lg font-medium text-black hover:text-gray-700 no-underline">
+                About Us <i className=" pl-1 fas fa-chevron-down"></i>
+              </DropdownMenuTrigger>
+
+              <DropdownMenuContent
+                align="start"
+                sideOffset={8}
+                className="bg-white"
+              >
+                <DropdownMenuItem>
+                  <Link
+                    className="flex items-center justify-between w-full text-lg text-black hover:text-gray-700 no-underline"
+                    href="#"
+                    to="/Announcements"
+                  >
+                    Announcements <i className=" pl-3 fas fa-chevron-right"></i>
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <Link
+                    className="flex items-center justify-between w-full text-lg text-black hover:text-gray-700 no-underline"
+                    href="#"
+                    to="/ourstory"
+                  >
+                    Our Story <i className=" pl-3 fas fa-chevron-right"></i>
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <Link
+                    className="flex items-center justify-between w-full text-lg text-black hover:text-gray-700 no-underline"
+                    href="#"
+                    to="/Volunteer"
+                  >
+                    Volunteers <i className=" pl-3 fas fa-chevron-right"></i>
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <Link
+                    className="flex items-center justify-between w-full text-lg text-black hover:text-gray-700 no-underline"
+                    href="#"
+                    to="/Partners"
+                  >
+                    Partners <i className=" pl-3 fas fa-chevron-right"></i>
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <Link
+                    className="flex items-center justify-between w-full text-lg text-black hover:text-gray-700 no-underline"
+                    href="#"
+                    to="/Contact"
+                  >
+                    Contact Us <i className=" pl-3 fas fa-chevron-right"></i>
+                  </Link>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+            <Link
+              className="text-lg font-medium text-black hover:text-gray-700 no-underline"
+              href="#"
+              to="/healthservices"
+            >
+              Health Services
             </Link>
-
-            <div className="menu-icon" onClick={handleClick}>
-              {click ? <FaTimes /> : <FaBars />}
-            </div>
-
-            <ul className={click ? "nav-menu active" : "nav-menu"}>
-              <Stack direction="row" spacing={2}>
-                <Button
-                  href='https://api.preview.platform.athenahealth.com/oauth2/v1/authorize?client_id=0oahqcmimiyUvkkAp297&response_type=code&redirect_uri=http://localhost:3000/appointments&scope=openid&state={"PRACTICEID":"80000"}'
-                  variant="contained"
-                  sx={{ color: "primary" }}
-                  size="small"
-                >
-                  {" "}
-                  Login with athenahealth{" "}
-                </Button>
-                <Button
-                  href="/NewPatientForms"
-                  variant="outlined"
-                  sx={{ color: "primary" }}
-                  size="small"
-                >
-                  {" "}
-                  New Patient
-                </Button>
-              </Stack>
-            </ul>
+            <Link
+              className="text-lg font-medium text-black hover:text-gray-700 no-underline"
+              href="#"
+              to="/Donate"
+            >
+              Donate
+            </Link>
+          </nav>
+        </div>
+        <div className="flex items-center space-x-4">
+          <div className="hidden border-r border-gray-200 pr-4 md:block dark:border-gray-800">
+            <Link
+              className="text-lg font-medium text-black hover:text-gray-700 no-underline"
+              href="#"
+            >
+              Patient Portal
+            </Link>
           </div>
-        </nav>
-      </IconContext.Provider>
-    </>
+          <Link
+            className="inline-flex items-center justify-center px-4 py-2 text-lg font-medium text-black border-2 border-black rounded-md transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-300 disabled:pointer-events-none disabled:opacity-50 no-underline"
+            href="#"
+          >
+            New Patient
+          </Link>
+        </div>
+      </header>
+    </IconContext.Provider>
   );
 }
 
