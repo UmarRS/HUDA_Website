@@ -119,7 +119,6 @@ function Navbar() {
       </header>
     </IconContext.Provider>
   );
-  //salam
 }
 
 export default Navbar;
